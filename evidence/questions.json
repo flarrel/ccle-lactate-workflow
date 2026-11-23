@@ -1,0 +1,22 @@
+[
+  {"id":"A01","question":"How many metabolites did Li and colleagues profile?","sources":["LI_ASSAY"],"expected":"225 metabolites"},
+  {"id":"A02","question":"Which measurement platform produced the relative metabolite signals?","sources":["LI_ASSAY"],"expected":"Targeted LC-MS"},
+  {"id":"A03","question":"Can I compare LC-MS peak-area abundance between two different metabolites?","sources":["LI_SCALE"],"expected":"No. Compare the same metabolite across cell lines."},
+  {"id":"A04","question":"What type of reference was used to correct LC-MS batch effects?","sources":["LI_BATCH"],"expected":"Pooled lysates or pooled reference samples"},
+  {"id":"A05","question":"For how many profiled metabolites did lineage explain more than 10% of variation?","sources":["LI_LINEAGE"],"expected":"148 metabolites"},
+  {"id":"A06","question":"What format did Public 20Q2 version 4 change the expression file to?","sources":["DEP_RELEASE"],"expected":"CSV"},
+  {"id":"A07","question":"What are the units for CCLE gene expression?","sources":["DEP_EXPR"],"expected":"log2(TPM+1)"},
+  {"id":"A08","question":"What does the lineage-only baseline predict for a lineage absent from training?","sources":["ML_SCOPE"],"expected":"The median lactate value in the training fold"},
+  {"id":"A09","question":"Is the lactate pathway model calibrated to longitudinal measurements?","sources":["SIM_SCOPE"],"expected":"No, the parameters are assumed"},
+  {"id":"A10","question":"How many cell lines entered the final modeling cohort?","sources":["QC_RUN"],"expected":"The QC_RUN modeling cohort count"},
+  {"id":"A11","question":"What was the held-out ridge MAE in the workflow run?","sources":["ML_RUN"],"expected":"The observed ridge MAE quoted to four decimals"},
+  {"id":"A12","question":"What is the simulator's reference steady state lactate pool?","sources":["SIM_RUN"],"expected":"4, in illustrative units"},
+  {"id":"U01","question":"What is the absolute lactate concentration in millimoles for the first cell line?","sources":[],"expected":"Abstain"},
+  {"id":"U02","question":"What human dose of a drug can be selected from this simulation?","sources":[],"expected":"Abstain"},
+  {"id":"U03","question":"What prospective clinical sensitivity did the ridge predictor achieve?","sources":[],"expected":"Abstain"},
+  {"id":"U04","question":"What is the measured lactate clearance rate for the liver cancer cell line with the highest value?","sources":[],"expected":"Abstain"},
+  {"id":"U05","question":"How many participants were enrolled in the external patient validation trial?","sources":[],"expected":"Abstain"},
+  {"id":"U06","question":"What was the instrument calibration curve slope for absolute lactate concentrations?","sources":[],"expected":"Abstain"},
+  {"id":"U07","question":"What proportion of patients responded after treatment in the clinical cohort?","sources":[],"expected":"Abstain"},
+  {"id":"U08","question":"What independent laboratory replicated the held-out ridge MAE?","sources":[],"expected":"Abstain"}
+]
