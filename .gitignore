@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.nextflow*
+work/
+results/
+.venv/
+.DS_Store
