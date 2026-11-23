@@ -1,15 +1,19 @@
 # CCLE lactate workflow
 
-This local research workflow tests whether a small gene-expression panel predicts relative
-lactate abundance in human cancer cell lines from unseen tissue lineages. It also checks
-whether a local language model can answer questions about the analysis and its source literature
-with verifiable citations.
+A local Nextflow pipeline for studying lactate in the Cancer Cell Line Encyclopedia (CCLE).
+It joins RNA expression, lactate measurements, and cell-line metadata, then tests whether
+expression predicts relative lactate abundance in tissue lineages held out from training.
+It also audits variant annotations, simulates lactate supply and clearance, and evaluates
+whether a local language model can cite evidence for answers about the data and results.
+
+See the [results from the original run](RESULTS.md) for prediction errors, citation failures,
+and reproducibility checks.
 
 ## Run locally
 
-The bundled runtime manifest targets Apple Silicon macOS. Install Python 3.12, Java 17, and Git.
-Allow about 1.3 GB of downloads. The data, weights, environments, and generated files live in
-the sibling runtime directory.
+Use macOS on Apple Silicon with Python 3.12 and Java 17. Allow about 1.3 GB of downloads.
+The workflow stores datasets, model weights, dependencies, and results in the sibling
+`runtime/` directory.
 
 ```sh
 ./bootstrap
@@ -36,7 +40,8 @@ locally without containers. The language model runs in a local CPU process.
    the steady state changes under different assumed parameters.
 4. **Check evidence.** Index source summaries and observed workflow facts in SQLite FTS5. Compare
    retrieval recall at three with the local model's citation behavior on a fixed, small benchmark.
-   Automated citation and number checks are followed by manual assessment of claim support.
+   Check citation IDs and numbers automatically, then review whether the cited records
+   support the answers.
 
 ## Outputs
 
@@ -54,7 +59,6 @@ The workflow publishes its results to `../runtime/results/`. When changing input
 The inputs come from [DepMap Public 20Q2 version 4](https://doi.org/10.6084/m9.figshare.12280541.v4)
 and [Li et al., Supplementary Table 1](https://doi.org/10.1038/s41591-019-0404-8), mirrored by
 [EMBL-EBI BioStudies](https://www.ebi.ac.uk/biostudies/studies/S-EPMC6629041).
-The model target is relative LC-MS signal for the same metabolite across cell lines. The
-evaluation is internal to CCLE. See [observed results and failure cases](RESULTS.md). The pathway
-parameters would need longitudinal measurements for cell-line calibration. The evidence benchmark measures behavior
-on these sources and questions only.
+The prediction target is relative LC-MS lactate signal across CCLE cell lines. The pathway
+model uses assumed parameters. Calibrating it for a cell line would require longitudinal
+measurements. The language model results apply to the sources and questions in this run.

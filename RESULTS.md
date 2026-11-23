@@ -1,4 +1,6 @@
-# Results
+# CCLE lactate analysis results
+
+The first complete workflow run started on 23 November 2026 at 17:59 WIB.
 
 ## Cohort and prediction
 
@@ -52,7 +54,6 @@ claims against the cited record before reuse.
 
 ## Workflow checks
 
-The full workflow completed all four Nextflow stages. A fresh repository snapshot produced
-byte-identical copies of all eight published outputs with the same pinned inputs. A resumed
-run reused all four completed stages. A separate run with an invalid expression header
-failed during preparation before creating model results.
+Later that day, a clean rerun with the same pinned inputs reproduced all eight outputs
+byte-for-byte. Nextflow reused all four completed stages on resume. A separate run with an
+invalid expression header failed during preparation before it produced model results.
