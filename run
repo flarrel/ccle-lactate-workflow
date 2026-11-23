@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+repo=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+runtime=$(CDPATH= cd -- "$repo/../runtime" && pwd)
+export NXF_HOME="$runtime/nextflow-home"
+export XDG_CACHE_HOME="$runtime/cache"
+export TMPDIR="$runtime/tmp"
+export PYTHONDONTWRITEBYTECODE=1
+export NXF_OFFLINE=true
+mkdir -p "$NXF_HOME" "$XDG_CACHE_HOME" "$TMPDIR" "$runtime/launch"
+# Nextflow stores its run history and task cache relative to the launch directory.
+cd "$runtime/launch"
+# Invoke the standalone JAR directly because its shell launcher splits paths with spaces.
+exec java "-Djava.io.tmpdir=$TMPDIR" -Dfile.encoding=UTF-8 -Djava.awt.headless=true -jar "$runtime/nextflow" run "$repo/main.nf" -c "$repo/nextflow.config" -work-dir "$runtime/work" \
+  --data_dir "$runtime" --outdir "$runtime/results" --python "$runtime/venv/bin/python" \
+  --llama "$runtime/llama/llama-completion" "$@"

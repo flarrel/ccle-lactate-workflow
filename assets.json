@@ -31,5 +31,10 @@
     "url": "https://github.com/ggml-org/llama.cpp/releases/download/b12651/llama-b12651-bin-macos-arm64.tar.gz",
     "digest": "264fd872de61679c45ad57e1e21c2a2a54e29b35734ecf3d50f24166447ab8d2",
     "max_bytes": 16644358
+  },
+  "metabolomics.xlsx": {
+    "url": "https://ftp.ebi.ac.uk/pub/databases/biostudies/S-EPMC/041/S-EPMC6629041/Files/NIHMS1033364-supplement-Supplementary_Tables_1__2__3__4.xlsx",
+    "digest": "d4d88b3e0259008c4ae0d0b580973d7eeab624d3cd5e349456ae73cf23c90051",
+    "max_bytes": 25122454
   }
 }
