@@ -40,7 +40,8 @@ locally without containers. The language model runs in a local CPU process.
 
 ## Outputs
 
-The workflow publishes its results to `../runtime/results/`.
+The workflow publishes its results to `../runtime/results/`. When changing inputs, pass a fresh
+`--outdir` to keep the new run’s artifacts together.
 
 - `qc.json` records source provenance, joins, attrition, missingness, lineage counts, and variant QC.
 - `predictions.csv` and `model.json` contain out-of-fold predictions, scores, and fold membership.
@@ -54,6 +55,6 @@ The inputs come from [DepMap Public 20Q2 version 4](https://doi.org/10.6084/m9.f
 and [Li et al., Supplementary Table 1](https://doi.org/10.1038/s41591-019-0404-8), mirrored by
 [EMBL-EBI BioStudies](https://www.ebi.ac.uk/biostudies/studies/S-EPMC6629041).
 The model target is relative LC-MS signal for the same metabolite across cell lines. The
-evaluation is internal to CCLE. The pathway parameters are illustrative and would need
-longitudinal measurements for cell-line calibration. The evidence benchmark measures behavior
+evaluation is internal to CCLE. See [observed results and failure cases](RESULTS.md). The pathway
+parameters would need longitudinal measurements for cell-line calibration. The evidence benchmark measures behavior
 on these sources and questions only.
